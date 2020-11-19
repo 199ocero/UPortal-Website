@@ -21,7 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth','admin']],function(){
     Route::get('/dashboard', function () {
@@ -30,7 +29,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
     Route::get('/admin', 'Admin\DashboardController@adminRoles');
     Route::get('/admin-edit/{id}', 'Admin\DashboardController@adminEdit');
-    
+    Route::get('/admin-create', 'Admin\DashboardController@adminCreate');
     Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');

@@ -13,32 +13,36 @@
 
         <div class="card-body">
             <form>
-                
                 <div class="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="edit_fname" class="form-control" value="{{$users->fname}}" placeholder="Enter First Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="edit_lname" class="form-control" value="{{$users->lname}}" placeholder="Enter Last Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Middle Name</label>
-                    <input type="text" name="edit_mname" class="form-control" value="{{$users->mname}}" placeholder="Enter Middle Name" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="text" name="edit_password" class="form-control" value="" placeholder="Enter Password" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                    <label class="col-md">First Name</label>
+                    <div class="col-md">
+                        <input type="text" name="edit_fname" class="form-control rounded-0" value="{{$users->fname}}" placeholder="Enter First Name" required>
                     </div>
-                    <div class="invalid-feedback">
-                        Please provide a password.
+                </div>
+                <div class="form-group">
+                    <label class="col-md">Last Name</label>
+                    <div class="col-md">
+                        <input type="text" name="edit_lname" class="form-control rounded-0" value="{{$users->lname}}" placeholder="Enter Last Name" required>
                     </div>
+                    
+                </div>
+                <div class="form-group">
+                    <label class="col-md">Middle Name</label>
+                    <div class="col-md">
+                        <input type="text" name="edit_mname" class="form-control rounded-0" value="{{$users->mname}}" placeholder="Enter Middle Name" required>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <label class="col-md">Email</label>
+                    <div class="col-md">
+                        <input type="text" name="edit_email" class="form-control rounded-0" value="{{$users->email}}" placeholder="Enter Middle Name" required>
+                        <small id="emailHelp" class="form-text text-muted">We will use this email to send the reset password link.</small>
+                    </div>
+                    
                 </div>
                 <div class="text-right">
-                    <a href="admin" class="btn btn-danger">Cancel</a>
+                    <a href="/admin" class="btn btn-danger">Cancel</a>
                     <button type="submit" name="update" class="btn btn-success">Update</button>
                 </div>
             </form>

@@ -80,23 +80,18 @@
                 <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
                     <input class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" type="text" name="email" placeholder="Email">
                     <span class="focus-input100"></span>
-                    @error('email')
-                    <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                    @enderror
                 </div>
-                
-                
                 <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
                     <input class="input100 @error('password') is-invalid @enderror" name="password" autocomplete="current-password" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>
-
-                    @error('password')
-                    <div class="alert alert-danger" role="alert">{{ $message }}</div>
+                </div>
+                <div>
+                    @error('email')
+                        <p class="text-danger">The email or password do not match.</p>
                     @enderror
                 </div>
-                
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
-                    <div class="contact100-form-checkbox ">
+                    <div class="contact100-form-checkbox">
                         <input class="input-checkbox100" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         
                         <label class="label-checkbox100" for="remember">
@@ -118,14 +113,13 @@
                         {{ __('Login') }}
                     </button>
                 </div>
-                
 
+                
+                
             </form>
         </div>
     </div>
 </div>
-
-
 <div id="dropDownSelect1"></div>
 
 @endsection
