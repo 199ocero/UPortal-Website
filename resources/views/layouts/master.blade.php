@@ -48,33 +48,33 @@
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
-                    <li>
+                    <li class="{{ 'dashboard' == request()->path() ? 'active': ''}}">
                         <a href="/dashboard">
-                            <i class="now-ui-icons design_app"></i>
+                            <i class="fas fa-th-large"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ 'admin' == request()->path() ? 'active': ''}}">
                         <a href="/admin">
-                            <i class="now-ui-icons ui-2_settings-90"></i>
+                            <i class="fas fa-users-cog"></i>
                             <p>Admins</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="now-ui-icons users_circle-08"></i>
+                    <li class="{{ 'instructors' == request()->path() ? 'active': ''}}">
+                        <a href="/instructors">
+                            <i class="fas fa-user-tie"></i>
                             <p>Instructors</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="now-ui-icons users_single-02"></i>
+                    <li class="{{ 'students' == request()->path() ? 'active': ''}}">
+                        <a href="/students">
+                            <i class="fas fa-user-friends"></i>
                             <p>Students</p>
                         </a>
                     </li>
                     <li class="active-pro">
                         <a href="#">
-                            <i class="now-ui-icons business_globe"></i>
+                            <i class="fab fa-facebook"></i>
                             <p>Visit UPortal FB Page</p>
                         </a>
                     </li>
@@ -113,9 +113,9 @@
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->fname }}</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Dashboard</a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="#">Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                                 </div>
                             </li>

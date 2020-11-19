@@ -21,19 +21,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/validate', 'Admin\DashboardController@accountValidate');
 
-Route::group(['middleware'=>['auth','admin']],function(){
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+});
 
-    Route::get('/admin', 'Admin\DashboardController@adminRoles');
-    Route::get('/admin-edit/{id}', 'Admin\DashboardController@adminEdit');
-    Route::get('/admin-create', 'Admin\DashboardController@adminCreate');
-    Route::get('/logout', function () {
-        Auth::logout();
-        return redirect('/');
-    });
+Route::get('/admin', 'Admin\DashboardController@adminRoles');
+Route::get('/admin-edit/{id}', 'Admin\DashboardController@adminEdit');
+Route::post('/admin-create', 'Admin\DashboardController@adminCreate');
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
 });
 
 
