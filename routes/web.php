@@ -18,21 +18,32 @@ Route::get('/', function () {
 });
 
 
-
 Auth::routes();
 
-Route::post('/validate', 'Admin\DashboardController@accountValidate');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+Route::group(['middleware' => ['auth', 'admin']], function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+    Route::post('/admin-create', 'Admin\DashboardController@adminCreate');
+    Route::get('/admin', 'Admin\DashboardController@adminRoles');
+    Route::get('/admin-edit/{id}', 'Admin\DashboardController@adminEdit');
+    Route::delete('/admin-delete/{id}', 'Admin\DashboardController@adminDelete');
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect('/');
+    });
 });
 
-Route::get('/admin', 'Admin\DashboardController@adminRoles');
-Route::get('/admin-edit/{id}', 'Admin\DashboardController@adminEdit');
-Route::post('/admin-create', 'Admin\DashboardController@adminCreate');
-Route::get('/logout', function () {
-    Auth::logout();
-    return redirect('/');
+Route::group(['middleware' => 'guest'], function () {
+
+    // Authentication Routes...
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 });
 
 

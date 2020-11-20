@@ -38,8 +38,7 @@
                     <div class="col-md">
                         <input type="text" name="edit_email" class="form-control rounded-0" value="{{$users->email}}" placeholder="Enter Middle Name" required>
                         <small id="emailHelp" class="form-text text-muted">We will use this email to send the reset password link.</small>
-                    </div>
-                    
+                    </div>     
                 </div>
                 <div class="text-right">
                     <a href="/admin" class="btn btn-danger">Cancel</a>

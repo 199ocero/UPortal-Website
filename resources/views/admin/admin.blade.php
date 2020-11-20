@@ -40,7 +40,7 @@
 
                 <div class="form-group">
                     <label>User Type</label>
-                    <input type="text" name="usertype" class="form-control rounded-0" placeholder="Enter User Type" required>
+                    <input type="text" name="usertype" class="form-control rounded-0" value="admin" placeholder="Enter User Type" readonly>
                 </div>
 
                 <div class="form-group">
@@ -101,7 +101,11 @@
                                     <a href="/admin-edit/{{$data->id}}" class="btn btn-secondary">EDIT</a>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-danger">DELETE</a>
+                                    <form action="/admin-delete/{{$data->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field ('DELETE')}}
+                                        <button type="submit" class="btn btn-danger">DELETE</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endif

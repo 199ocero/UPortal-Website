@@ -16,11 +16,11 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-
+        
         if(Auth::user()->usertype == 'admin'){
             return $next($request);
         }else{
-            return redirect('/home')->with('status','You are not allowed in dashboard.');
+            return redirect('/login')->with('status','You are not allowed in dashboard.');
         }
         
     }
